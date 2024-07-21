@@ -3,27 +3,18 @@ from flask import Flask, request, jsonify
 from pymongo import MongoClient
 from flask_cors import CORS
 from voice import get_bus_schedule, get_bus_location, get_bus_station, get_blind_people_count  # Import your voice functions
-# Initializing Flask App
-app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
 
-# Initializing MongoDB
+app = Flask(__name__)
+CORS(app)  
+
 client = MongoClient('mongodb://localhost:27017/')
 db = client['bus_detection_system']
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
-
-# Your other routes and configurations...
-
-# Assuming this function invokes your voice assistant functionality
-#def get_bus_schedule():
-    # Your code here to trigger the voice assistant and get the bus schedule
-
-# Define the Flask route that triggers the voice assistant for bus schedule
 @app.route('/get_bus_schedule', methods=['GET'])
 def trigger_voice_assistant_for_bus_schedule():
-    response = get_bus_schedule()  # Invoke your voice assistant function
+    response = get_bus_schedule() 
     return jsonify({'speech_output': response})  # Return speech output as JSON
 
 
@@ -104,25 +95,20 @@ def get_bus_info():
 
 if __name__ == '__main__':
     app.run(debug=True)
-# Import necessary libraries
+# Importing necessary libraries
 from flask import Flask, request, jsonify
 import requests
 
 app = Flask(__name__)
 
-# Define your API endpoint
+# Defining API endpoint
 @app.route('/get_bus_schedule', methods=['GET'])
 def get_bus_schedule():
     try:
-        # Make an API request to your backend (replace with your actual API URL)
         api_url = 'http://localhost:5000/get_bus_schedule'
         response = requests.get(api_url)
         bus_schedules = response.json()['result']
-
-        # Process the data (e.g., extract bus numbers, routes, timings)
-        # Generate a voice response (e.g., "Bus number 123 goes from A to B at 9:00 AM")
-
-        # Return the voice response
+    
         return jsonify({'response': 'Bus schedules retrieved successfully!'})
 
     except Exception as e:
