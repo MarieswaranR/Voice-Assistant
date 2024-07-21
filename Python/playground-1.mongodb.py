@@ -1,7 +1,3 @@
-#* global use, db */
-# MongoDB Playground
-# Use Ctrl+Space inside a snippet or a string literal to trigger completions.
-# Importing Required Libraries
 from pymongo import MongoClient
 
 # Initializing MongoDB
@@ -69,7 +65,6 @@ bus_station_data = [
 ]
 bus_station.insert_many(bus_station_data)
 
-# Creating Blind People Count Collection
 blind_people_count = db['blind_people_count']
 blind_people_count_data = [
     {
