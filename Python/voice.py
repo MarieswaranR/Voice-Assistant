@@ -8,9 +8,9 @@ import pymongo
 # Initializing Voice Assistant
 assistant = pyttsx3.init()
 voices = assistant.getProperty('voices')
-assistant.setProperty('voice', voices[1].id) # Setting female voice
+assistant.setProperty('voice', voices[1].id)
 rate = assistant.getProperty('rate')
-assistant.setProperty('rate', 150) # Setting speech rate
+assistant.setProperty('rate', 150)
 
 # Initializing Speech Recognition
 recognizer = sr.Recognizer()
@@ -105,13 +105,9 @@ def get_bus_departure_time():
 
 # Defining Detect Bus Station Function
 def detect_bus_station():
-    # Assuming RFID technology is used to detect the presence of blind people at the bus station
-    # and the station name is stored in a variable called station_name
     station_name = "Madurai Bus Stand" # For example
     assistant.say(f"You are at {station_name}.")
     assistant.runAndWait()
-    # Assuming web scraping is used to get the coming buses and their arrival times
-    # and the data is stored in a list of tuples called coming_buses
     coming_buses = [("1", "6:00 AM"), ("2", "7:00 AM"), ("3", "8:00 AM")] # For example
     assistant.say("Here are the coming buses and their arrival times:")
     assistant.runAndWait()
@@ -121,47 +117,34 @@ def detect_bus_station():
 
 # Defining Detect Bus Function
 def detect_bus():
-    # Assuming RFID technology is used to detect the presence of blind people on the bus
-    # and the bus number and location are stored in variables called bus_number and bus_location
     bus_number = "1" # For example
     bus_location = "Madurai" # For example
     assistant.say(f"You are on bus number {bus_number}.")
     assistant.runAndWait()
     assistant.say(f"The bus is currently at {bus_location}.")
     assistant.runAndWait()
-    # Assuming web scraping is used to get the nearby stations and their distances
-    # and the data is stored in a list of tuples called nearby_stations
     nearby_stations = [("Chennai Bus Stand", "10 km"), ("Bangalore Bus Stand", "20 km"), ("Coimbatore Bus Stand", "30 km")] # For example
     assistant.say("Here are the nearby stations and their distances:")
     assistant.runAndWait()
     for station, distance in nearby_stations:
         assistant.say(f"{station} is {distance} away from the bus.")
         assistant.runAndWait()
-
-# Defining Announce Bus Arrival Function
+        
 def announce_bus_arrival():
-    # Assuming RFID technology is used to detect the presence of blind people on the bus
-    # and the station name and arrival time are stored in variables called station_name and arrival_time
     station_name = "Chennai Bus Stand" # For example
     arrival_time = "6:00 AM" # For example
     assistant.say(f"The bus will arrive at {station_name} at {arrival_time}.")
     assistant.runAndWait()
-    # Assuming RFID technology is used to alert the driver about the number of blind people in the surrounding area of the station
-    # and the number is stored in a variable called blind_people_count
     blind_people_count = 3 # For example
     assistant.say(f"There are {blind_people_count} blind people in the surrounding area of the station. Please be careful and help them if needed.")
     assistant.runAndWait()
 
 # Defining Announce Bus Departure Function
 def announce_bus_departure():
-    # Assuming RFID technology is used to detect the presence of blind people on the bus
-    # and the station name and departure time are stored in variables called station_name and departure_time
     station_name = "Chennai Bus Stand" # For example
     departure_time = "6:30 AM" # For example
     assistant.say(f"The bus will depart from {station_name} at {departure_time}.")
     assistant.runAndWait()
-    # Assuming RFID technology is used to alert the driver about the number of blind people on the bus
-    # and the number is stored in a variable called blind_people_count
     blind_people_count = 2 # For example
     assistant.say(f"There are {blind_people_count} blind people on the bus. Please be careful and help them if needed.")
     assistant.runAndWait()
