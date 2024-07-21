@@ -1,0 +1,5 @@
+speech_recognition==3.8.1
+pyttsx3==2.90
+requests==2.26.0
+beautifulsoup4==4.9.3
+pymongo==3.12.0
